@@ -1,0 +1,38 @@
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Book Records</title>
+{% endblock %}
+
+{% block content %}
+<!--Show Book Records for Students -->
+<center><h1>Book Records</h1>
+<div class="container">
+    <table class="table table-striped" style="width:90%">
+        <thead align="center" class="thead-dark">
+            <tr style="background-color:rgb(80, 14, 14); color:white;" >
+                <th>Book Id</th>
+                <th>Book Name</th>
+                <th>Author NAME</th>
+                <th>ISBN No</th>
+                <th>Quantity</th>
+                
+            </tr>
+        </thead>
+        <tbody style="background-color:white;">
+        {% for i in obj %}
+        <tr class="table-secondary" >
+            <td>{{i.srno}}</td>
+            <td>{{i.bookname}}</td>
+            <td>{{i.author}}</td>
+            <td>{{i.isbn}}</td>
+            <td>{{i.quantity}}</td>
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</center>
+{% endblock %}

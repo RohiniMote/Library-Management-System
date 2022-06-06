@@ -1,0 +1,22 @@
+
+{% extends 'home.html' %}
+    {% block title %}
+    <title>Confirmation Page</title>
+    {% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+  <div class="jumbotron" style="background-color:transparent;">
+    <!-- Confirmation about delete book records-->
+    <center>
+    <form method="post">
+      {% csrf_token %}
+      <h3>Do You Want To Delete <span style="color:red;">{{data.bookname}} {{data.author}}</span> Record?</h3>
+      <input type="submit" value="YES" class="btn btn-danger">
+      <button class="btn btn-success"><a href="{% url 'showbook_url' %}" style="color:white;">NO</a></button>
+    </form>
+    </center>
+  </div>
+</div>
+{% endblock %}

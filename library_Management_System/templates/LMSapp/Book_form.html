@@ -1,0 +1,49 @@
+
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Book Records</title>
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+    <div class="jumbotron" style="background-color:transparent;">
+        <!-- add Book to library Form-->
+        <form method="post">
+             
+            {% csrf_token %}
+        <center><h1 style="color:navy;">Book Records</h1>
+    
+        <div class="form-row" style="color:black;">
+            <div class="form-group col-md-12" style="width:100%;">
+                {{form.srno|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-12" style="width:100%;">
+                {{form.bookname|as_crispy_field}}
+            </div>
+            <br>
+            <div class="form-group col-md-12 mb-2">
+                {{form.author|as_crispy_field}}
+            </div>
+            <br>
+            <div class="form-group col-md-12 mb-2">
+                {{form.isbn|as_crispy_field}}
+            </div>
+            
+            <br>
+            <div class="form-group col-md-12 mb-2">
+                {{form.quantity|as_crispy_field}}
+            </div>
+            <br>
+            <div class="form-group col-md-12 mb-2">
+            <button type="submit" class="btn btn-success">ADD</button>
+            </div>
+        </form>
+    </div>
+</div>
+</center>
+
+{% endblock %}
+

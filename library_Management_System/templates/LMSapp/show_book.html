@@ -1,0 +1,43 @@
+
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Show Book Data</title>
+{% endblock %}
+
+{% block content %}
+<!--Show Book Details -->
+<center><h1>Book Details</h1>
+<div class="container">
+    <table class="table table-striped" style="width:90%">
+        <thead align="center" class="thead-dark">
+            <tr style="background-color:rgb(80, 14, 14); color:white;" >
+                <th>Book Id</th>
+                <th>Book Name</th>
+                <th>Author NAME</th>
+                <th>ISBN No</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody style="background-color:white;">
+        {% for i in obj %}
+        <tr class="table-secondary" >
+            <td>{{i.srno}}</td>
+            <td>{{i.bookname}}</td>
+            <td>{{i.author}}</td>
+            <td>{{i.isbn}}</td>
+            <td>{{i.category}}</td>
+            <td>{{i.quantity}}</td>
+            <td><button class='btn btn-success'><a href="{% url 'updatebook_url' i.srno %}" style="color:navy;">UPDATE</a></button></td>
+            <td><button class='btn btn-danger'><a href="{% url 'deletebook_url' i.srno %}" style="color:navy;">DELETE</a></button></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</center>
+{% endblock %}
